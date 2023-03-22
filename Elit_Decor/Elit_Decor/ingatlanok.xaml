@@ -1,0 +1,51 @@
+﻿<Window x:Class="Elit_Decor.ingatlanok"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Elit_Decor"
+        mc:Ignorable="d"
+        Title="ingatlanok" Height="507" Width="1239">
+	<Window.Background>
+		<ImageBrush ImageSource="/windows-gdf8ecab41_1920.jpg"/>
+	</Window.Background>
+	<Grid Height="496" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1170">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="63*"/>
+		</Grid.ColumnDefinitions>
+		<Menu Height="51" VerticalAlignment="Top" Background="#FFE8E8E8" Margin="0,0,-68,0" Grid.ColumnSpan="2">
+			<MenuItem x:Name="Szolgaltatasok_menu" Header="Szolgáltatások" Height="41" Width="93"/>
+			<MenuItem x:Name="Idopontfoglalas_menu" Header="Időpontfoglalás" Height="41" Width="93"/>
+			<MenuItem x:Name="Kereses_menu" Header="Keresés" Height="41" Width="93"/>
+		</Menu>
+		<Label Content="Választható  ingatlanok:" HorizontalAlignment="Left" Height="27" Margin="12,56,0,0" VerticalAlignment="Top" Width="172" Grid.ColumnSpan="2"/>
+		<DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" x:Name="adatok" Height="286" Margin="10,88,-50,0" VerticalAlignment="Top" Loaded="adatok_Loaded" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+			<DataGrid.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="0.175"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</DataGrid.RenderTransform>
+			<DataGrid.Columns>
+				<DataGridTextColumn Binding="{Binding leiras}" Header="Leiras" Width="700"/>
+				<DataGridTextColumn Binding="{Binding hely}" Header="Hely" Width="200"/>
+				<DataGridTextColumn Binding="{Binding cm2}" Header="cm2" Width="80"/>
+				<DataGridTextColumn Binding="{Binding szobak_szama}" Header="Szobak" Width="70"/>
+				<DataGridTextColumn Binding="{Binding tipus}" Header="Tipus" Width="80"/>
+				<DataGridTextColumn Binding="{Binding ar}" Header="Ar" Width="100"/>
+			</DataGrid.Columns>
+		</DataGrid>
+		<Label Content="Vásárlás:" HorizontalAlignment="Left" Height="28" Margin="12,376,0,0" VerticalAlignment="Top" Width="181" Grid.ColumnSpan="2"/>
+		<TextBox x:Name="nev" HorizontalAlignment="Left" Height="34" Margin="66,404,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" RenderTransformOrigin="0.527,0.599" Grid.Column="1"/>
+		<Button x:Name="felvezetes" Content="Vétel" HorizontalAlignment="Left" Height="32" Margin="313,444,0,0" VerticalAlignment="Top" Width="115" Click="felvezetes_Click" Grid.Column="1"/>
+		<Label Content="Teljes név:" HorizontalAlignment="Left" Height="34" Margin="10,409,0,0" VerticalAlignment="Top" Width="68" Grid.ColumnSpan="2"/>
+		<Label Content="Email:" HorizontalAlignment="Left" Height="32" Margin="10,448,0,0" VerticalAlignment="Top" Width="78" Grid.ColumnSpan="2"/>
+		<TextBox x:Name="kereses" HorizontalAlignment="Left" Height="27" Margin="887,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Grid.Column="1"/>
+		<Button x:Name="gomb1" Content="Keresés" Height="27" Margin="1098,10,-51,0" VerticalAlignment="Top" Grid.Column="1"/>
+		<TextBox x:Name="email" HorizontalAlignment="Left" Height="34" Margin="66,443,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" Grid.Column="1"/>
+
+	</Grid>
+</Window>
